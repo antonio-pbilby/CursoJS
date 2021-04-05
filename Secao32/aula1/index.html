@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h1{
+            background: red;
+        }
+
+        p {
+            background: blue;
+        }
+
+        #heading {
+            background: purple;
+        }
+
+        .fundo-vermelho {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading" class="fundo-vermelho borda-esquerda">
+        Texto do primeiro H1
+    </h1> <!--não pode ter 2 tags com o mesmo ID-->
+    <h1 id="cabecalho-dois" class="fundo-vermelho">
+        Texto do segundo H1
+    </h1> <!--classe pode repetir-->
+    <!--pode adicionar mais de uma classe numa mesma tag-->
+    <p>Um texto qualquer</p>
+    <!--ID tem mais especificidade que o class, por conta disso o .fundo-vermelho não sobrescreveu o ID-->
+</body>
+</html>
