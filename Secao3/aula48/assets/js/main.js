@@ -1,34 +1,65 @@
 function tarefa() {
-  let idLista = 0;
   //declaração de cada elemento do html
   const adiciona = document.querySelector(".insere");
   const lista = document.querySelector(".lista");
   const userInput = document.querySelector(".input");
 
-  //função de inserir uma tarefa 
+  function restauraTarefas(){
+    const tarefas = localStorage.getItem('tarefas');
+    const listaDeTarefas = JSON.parse(tarefas);
+    for(let tarefa of listaDeTarefas){
+      insereTarefa(tarefa);
+    }
+  }
+  restauraTarefas();
+
+  function salvaTarefas(){
+    //seleciona todos os <li>
+    const liTarefas = lista.querySelectorAll('li');
+    const listaDeTarefas = [];
+    for (let tarefa of liTarefas){
+      listaDeTarefas.push(tarefa.innerText);
+    }
+    
+    const tarefasJSON = JSON.stringify(listaDeTarefas);
+    localStorage.setItem('tarefas', tarefasJSON);
+  }
+
+  function limpaTarefa(){
+    //limpa a área de input
+    userInput.value = '';
+    userInput.focus();
+  }
+  
+  function criaBotaoRemove(){
+    //cria o botão de remover tarefa
+    const botao = document.createElement("button");
+    botao.classList.add("remove");
+    botao.innerText = "Remover";
+    return botao;
+  }
+
   function insereTarefa(textoInput) {
+    //função de inserir uma tarefa 
     const divItem = document.createElement("div");
-    divItem.classList.add(`div${idLista}`);
+    divItem.classList.add(`div`);
 
     const itemLista = document.createElement("li");
     itemLista.innerText = textoInput;
 
-    const botaoRemover = document.createElement("button");
-    botaoRemover.classList.add("remove");
-    botaoRemover.setAttribute("id", `${idLista}`);
-    botaoRemover.innerText = "Remover";
+    const botaoRemover = criaBotaoRemove();
 
     divItem.appendChild(itemLista);
     divItem.appendChild(botaoRemover);
 
     lista.appendChild(divItem);
-    idLista++;
+    limpaTarefa();
+    salvaTarefas();
   }
-
+  
   function removeTarefa(el) {
-    const divItem = document.querySelector(`.div${el.getAttribute("id")}`);
-    lista.removeChild(divItem);
-    idLista--;
+    el.parentElement.remove();
+    salvaTarefas();
   }
 
   //event listener para esperar um click
@@ -53,7 +84,7 @@ function tarefa() {
       if (!userInput.value) return;
       insereTarefa(userInput.value);
     }
-  })
+  });
 }
 
 tarefa();
