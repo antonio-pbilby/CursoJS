@@ -1,0 +1,2 @@
+Funções 'fábrica'
+Factory Functions

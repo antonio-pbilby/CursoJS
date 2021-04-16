@@ -1,0 +1,1 @@
+Escopo léxico de funções

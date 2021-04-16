@@ -1,0 +1,1 @@
+Funções geradoras em JS
