@@ -1,0 +1,1 @@
+Operadores lógicos de comparação

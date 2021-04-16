@@ -1,0 +1,1 @@
+False values em JavaScript
