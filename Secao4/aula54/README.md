@@ -1,1 +1,0 @@
-Callback de funções

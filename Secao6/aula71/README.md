@@ -1,2 +1,0 @@
-Object.defineProperty()
-Object.defineProperties()

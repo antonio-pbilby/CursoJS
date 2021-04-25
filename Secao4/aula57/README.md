@@ -1,1 +1,0 @@
-Exercício, calculadora em JS

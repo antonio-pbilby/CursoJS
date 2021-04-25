@@ -1,1 +1,0 @@
-Filter + map + reduce

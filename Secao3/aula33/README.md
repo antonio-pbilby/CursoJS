@@ -1,1 +1,0 @@
-Atribuição via desestruração

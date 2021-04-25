@@ -1,1 +1,0 @@
-Funções construtoras em JS

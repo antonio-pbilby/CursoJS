@@ -1,1 +1,0 @@
-Heranças em classes

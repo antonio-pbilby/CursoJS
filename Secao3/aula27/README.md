@@ -1,1 +1,0 @@
-Aplicação das estruturas e operadores lógicos

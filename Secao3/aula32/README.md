@@ -1,1 +1,0 @@
-Atribuição via desestruturação com arrays e objetos

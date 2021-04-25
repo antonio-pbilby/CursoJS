@@ -1,1 +1,0 @@
-Exercício lembrete de tarefas

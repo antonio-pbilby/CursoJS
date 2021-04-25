@@ -1,1 +1,0 @@
-Concatenação de arrays
