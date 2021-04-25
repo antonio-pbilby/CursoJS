@@ -1,1 +1,0 @@
-Comentários em JavaScript

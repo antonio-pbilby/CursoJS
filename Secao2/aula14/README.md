@@ -1,1 +1,0 @@
-Numbers e métodos de Numbers
