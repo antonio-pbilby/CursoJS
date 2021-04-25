@@ -1,6 +1,6 @@
-# Introdução a JavaScript
+# git Introdução a JavaScript
 
-## aula3/
+## [aula3/](aula3/)
 
 Aula sobre console.log();
 Não confundir '1' com 1
