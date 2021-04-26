@@ -1,69 +1,29 @@
-// const request = (obj) => {
-//   return new Promise((resolve, reject) => {
-//     //xml http request
-//     const xhr = new XMLHttpRequest();
-//     /**
-//      * (method, url, async)
-//      * method : post, get, etc
-//      * url: url
-//      * async: true or false
-//      */
-//     xhr.open(obj.method, obj.url, true);
-//     xhr.send();
+// fetch("pessoas.json")
+//   .then((resposta) => resposta.json())
+//   .then((json) => loadElementsOnPage(json));
 
-//     xhr.addEventListener("load", () => {
-//       if (xhr.status >= 200 && xhr.status < 300) resolve(xhr.responseText);
-//       reject(xhr.statusText);
-//     });
-//   });
-// };
+axios("pessoas.json").then((resposta) => loadElementsOnPage(resposta.data));
 
-document.addEventListener("click", (e) => {
-  const el = e.target;
-  const tag = el.tagName.toLowerCase();
+function loadElementsOnPage(elements) {
+  const createTable = document.createElement("table");
+  for (let pessoa of elements) {
+    const createTableRow = document.createElement("tr");
 
-  if (tag === "a") {
-    e.preventDefault();
-    carregaPagina(el);
-  }
-});
+    let createTableData = document.createElement("td");
+    createTableData.innerHTML = pessoa.nome;
+    createTableRow.appendChild(createTableData);
 
-async function carregaPagina(el) {
-  try {
-    const href = el.getAttribute("href");
-    const response = await fetch(href);
+    createTableData = document.createElement("td");
+    createTableData.innerHTML = pessoa.idade;
+    createTableRow.appendChild(createTableData);
 
-    if (response.status !== 200) throw new Error("ERRO 404");
+    createTableData = document.createElement("td");
+    createTableData.innerHTML = pessoa.salario;
+    createTableRow.appendChild(createTableData);
 
-    const html = await response.text();
-
-    carregaResultado(html);
-  } catch (e) {
-    console.warn(e);
+    createTable.appendChild(createTableRow);
   }
 
-  //ambos códigos executam da mesma forma
-  //mas com linguagem diferente
-  // fetch(href)
-  //   .then((response) => {
-  //     if (response.status !== 200) throw new Error("ERRO 404");
-  //     return response.text();
-  //   })
-  //   .then((html) => carregaResultado(html))
-  //   .catch((e) => console.log(e));
+  const resultado = document.getElementById("resultado");
+  resultado.appendChild(createTable);
 }
-
-function carregaResultado(response) {
-  const resultado = document.querySelector(".resultado");
-  resultado.innerHTML = response;
-}
-
-//carregar o conteúdo da página1
-//fetch retorna uma promise
-// fetch("./pagina3.html")
-//   .then((resposta) => {
-//     if (resposta.status !== 200) throw new Error("ERROR 4004 NOSSO");
-//     return resposta.text();
-//   })
-//   .then((html) => console.log(html))
-//   .catch((e) => console.log(e));
