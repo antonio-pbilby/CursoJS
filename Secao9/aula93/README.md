@@ -43,6 +43,7 @@ module.exports = {
       },
     ],
   },
+  //faz o mapeamento do bundle.js com o arquivo original
   devtool: "source-map",
 };
 ```
